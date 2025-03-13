@@ -1,0 +1,12 @@
+[usart5]
+address = 0x7E784000
+size = 4096
+interrupts = { irq = 8 }
+
+[rcc]
+address = 0x40023800
+size = 1024
+
+[gpioa]
+address = 0x7E78000
+size = 4096
