@@ -11,7 +11,7 @@ trap "kill 0; rm ttyS1" EXIT
 sudo modprobe mctp-serial
 
 # Load the image into qemu and connect the serial to a chardev (symlinked to ttyS1)
-qemu-system-arm -M ast1030-evb -nographic -chardev pty,id=char0,path=ttyS1 -serial chardev:char0 -kernel ./target/ast1060-mctp-echo/dist/default/final.bin &
+./qemu-system-arm -M ast1030-evb -nographic -chardev pty,id=char0,path=ttyS1 -serial chardev:char0 -kernel ../../target/ast1060-mctp-echo/dist/default/final.bin &
 sleep 1
 
 echo -e '\n\nSetting up MCTP serial link'
@@ -26,5 +26,5 @@ echo -e 'MCTP serial link is up\n'
 
 
 echo -e 'Sending MCTP request...'
-sudo ./target/debug/test-mctp-request
+sudo ../../target/debug/test-mctp-request
 
